@@ -87,9 +87,12 @@ class App extends Component {
     })
   }
 
-  createRoom(roomName) {
-    // comingsoon
-    console.log('roomName: ', roomName)
+  createRoom(name) {
+    this.currentUser.createRoom({
+      name
+    })
+    .then(room => this.subscribeToRoom(room.id))
+    .catch(err => console.log('error with createRoom', err))
   }
 
   render() {
