@@ -13,6 +13,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      roomId: null,
       messages: [],
       joinableRooms: [],
       joinedRooms: []
@@ -57,6 +58,7 @@ class App extends Component {
   }
 
   subscribeToRoom(roomId) {
+    this.setState ({ messages: [] })
     this.currentUser.subscribeToRoom({
       roomId: roomId,
       hooks: {
@@ -67,12 +69,19 @@ class App extends Component {
         }
       }
     })
+    .then(room => {
+      this.setState({
+        roomId: room.id
+      })
+      this.getRooms()
+    })
+    .catch(err => console.log('error on subscbring to room: ', err))
   }
 
   sendMessage(text) {
     this.currentUser.sendMessage({
       text,
-      roomId: 19376685
+      roomId: this.state.roomId
     })
   }
 
