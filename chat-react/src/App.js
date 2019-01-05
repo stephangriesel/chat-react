@@ -6,6 +6,7 @@ import SendMessageForm from './components/SendMessageForm';
 
 import { tokenUrl, instanceLocator } from './config';
 import RoomList from './components/RoomList';
+import NewRoomForm from './components/NewRoomForm';
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
     this.sendMessage = this.sendMessage.bind(this)
     this.getRooms = this.getRooms.bind(this)
     this.subscribeToRoom = this.subscribeToRoom.bind(this)
+    this.createRoom = this.createRoom.bind(this)
     
   }
 
@@ -85,6 +87,11 @@ class App extends Component {
     })
   }
 
+  createRoom(roomName) {
+    // comingsoon
+    console.log('roomName: ', roomName)
+  }
+
   render() {
     return (
       <div className="App">
@@ -94,6 +101,7 @@ class App extends Component {
           rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]} />
         <MessageList messages={this.state.messages}/>
         <SendMessageForm sendMessage={this.sendMessage} />
+        <NewRoomForm createRoom={this.createRoom} />
       </div>
     );
   }

@@ -1,39 +1,41 @@
-import React from 'react'
+import React from "react";
 
 class NewRoomForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      roomName: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    constructor() {
-        super()
-        this.state = {
-            roomName:''
-        }
-    }
+  handleChange(e) {
+    this.setState({
+      roomName: e.target.value
+    });
+  }
 
-    handleChange(e) {
-        this.setState({
-            roomName: e.target.value
-        })
-    }
-
-    handleSubmit(e) {
-        e.preventDefault()
-    }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createRoom(this.state.roomName);
+  }
 
   render() {
     return (
       <div className="new-room-form">
         <form onSubmit={this.handleSubmit}>
-            <input 
+          <input
             onChange={this.handleChange}
             type="text"
             placeholder="newRoomForm"
             required
-            />
-            <button id="create-room-btn"></button>
+          />
+          <button id="create-room-btn" />
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default NewRoomForm
+export default NewRoomForm;
