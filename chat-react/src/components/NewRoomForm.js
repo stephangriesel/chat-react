@@ -33,7 +33,7 @@ class NewRoomForm extends React.Component {
             placeholder="Create A Room"
             required
           />
-          <button id="create-room-btn" />
+          <button id="create-room-btn">Create</button>
         </form>
       </div>
     );
