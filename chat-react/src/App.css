@@ -30,6 +30,27 @@
   grid-area: s;
 }
 
+.message {
+  margin-left:20px;
+  padding:5px;
+  text-align: left;
+  text-transform: lowercase;
+  font-size:12px;
+  font-weight:bold;
+  color:#464646;
+}
+
+.message-text {
+  padding:5px;
+  background:#6197fb;
+  width:200px;
+  border-radius: 10px;
+  text-align: left;
+  margin-left:30px;
+  color:#FFFFFF;
+  margin-bottom:5px;
+}
+
 /* Rest of CSS */
 
 a {
@@ -40,8 +61,10 @@ a {
 .send-message-form input {
   width:100%;
   background:#e6e6e6;
-  height:100%;
+  height:90px;
   border:none;
+  font-size:22px;
+  padding-left:10px;
 }
 
 .message-list {
@@ -56,12 +79,13 @@ a {
   margin:0;
   padding-bottom:20px;
   font-size: 20px;
+  height:100%;
 
 }
 
 .new-room-form {
   width:100%;
-  height:100%;
+  height:90px;
   border:none;
   background: #6197fb;
   font-size:18px;
